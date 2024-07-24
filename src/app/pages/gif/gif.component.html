@@ -1,0 +1,8 @@
+
+<section>
+    @if(gifResults$ | async; as resultObject){
+        @for(gif of resultObject; track gif.id){
+            <div>{{gif.id}}</div>
+        }
+    }
+</section>
