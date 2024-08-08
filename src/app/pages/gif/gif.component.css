@@ -10,3 +10,16 @@
 .title {
   text-align: center;
 }
+
+.searchSection {
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput {
+  outline: none;
+}
+
+.buttonSearch {
+  display: none;
+}
