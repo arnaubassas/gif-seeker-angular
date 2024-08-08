@@ -1,8 +1,11 @@
+<h2 class="title">Gifs</h2>
 
-<section>
-    @if(gifResults$ | async; as resultObject){
-        @for(gif of resultObject; track gif.id){
-            <div>{{gif.id}}</div>
-        }
-    }
+<section class="container-page">
+  @if(gifResults$ | async; as resultObject){ @for(gif of resultObject; track
+  gif.id){
+  <app-card>
+    <h3>{{ gif.title }}</h3>
+    <img src="{{ gif.images.fixed_width_downsampled.url }}" alt="" />
+  </app-card>
+  } }
 </section>
