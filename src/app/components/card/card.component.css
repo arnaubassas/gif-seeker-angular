@@ -1,0 +1,14 @@
+.card-gif {
+  box-sizing: border-box;
+  border: solid 1px #e3e3e3;
+  margin-top: 10px;
+  color: black;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 200px;
+  padding: 20px 10px;
+  text-align: center;
+  height: 100%;
+}

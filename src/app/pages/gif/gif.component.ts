@@ -3,11 +3,12 @@ import { catchError, EMPTY, Observable } from 'rxjs';
 import { GifService } from '../../service/gif.service';
 import { Gif } from '../../interface/gif';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-gif',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
   templateUrl: './gif.component.html',
   styleUrl: './gif.component.css',
 })
