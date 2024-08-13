@@ -1,4 +1,4 @@
-<h2 class="title">Gifs</h2>
+<h2 class="title">Gifs of: {{ searchParam }}</h2>
 <!-- <app-input /> -->
 <div class="searchSection">
   <form (ngSubmit)="onSearch()">
@@ -21,3 +21,12 @@
   </app-card>
   } }
 </section>
+
+<div class="pagination">
+  @if(pageNumber!==1){
+  <button class="paginationBotton" (click)="pagination('previus')">
+    Previous
+  </button>
+  }
+  <button class="paginationBotton" (click)="pagination('next')">Next</button>
+</div>

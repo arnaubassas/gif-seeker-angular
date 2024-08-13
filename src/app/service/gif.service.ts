@@ -15,12 +15,13 @@ export class GifService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getGifs(search: string): Observable<Gif[]> {
+  getGifs(search: string, page: number): Observable<Gif[]> {
+    const offset = page * 20;
     const params = new HttpParams()
       .set('api_key', 'eSuJruLdh1NuoFKB4UUXsicSQmvLrmHD')
       .set('q', search)
       .set('limit', '20')
-      .set('offset', '0')
+      .set('offset', offset)
       .set('rating', 'g')
       .set('lang', 'en');
 

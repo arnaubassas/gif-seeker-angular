@@ -23,3 +23,17 @@
 .buttonSearch {
   display: none;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+.paginationBotton {
+  border: none;
+  background-color: rgba(6, 155, 241, 0.813);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: larger;
+  margin-right: 5px;
+}
