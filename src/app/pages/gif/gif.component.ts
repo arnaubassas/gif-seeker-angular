@@ -4,14 +4,21 @@ import { GifService } from '../../service/gif.service';
 import { Gif } from '../../interface/gif';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../../components/card/card.component';
-import { InputComponent } from '../../components/input/input.component';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
 
 @Component({
   selector: 'app-gif',
   standalone: true,
-  imports: [CommonModule, CardComponent, InputComponent, FormsModule],
+  imports: [
+    CommonModule,
+    CardComponent,
+    FormsModule,
+    SearchBarComponent,
+    PaginationComponent,
+  ],
   templateUrl: './gif.component.html',
   styleUrl: './gif.component.css',
 })
@@ -19,7 +26,6 @@ export class GifComponent implements OnInit {
   public gifResults$!: Observable<Gif[]>;
   public errorMessage!: string;
   pageNumber!: number;
-  searchTerm!: string;
   searchParam!: string;
 
   constructor(
@@ -44,8 +50,8 @@ export class GifComponent implements OnInit {
       })
     );
   }
-  onSearch() {
-    this.router.navigate([this.searchTerm, 1]);
+  onSearch(searchTerm: string) {
+    this.router.navigate([searchTerm, 1]);
   }
   pagination(action: string) {
     if (action === 'next') {

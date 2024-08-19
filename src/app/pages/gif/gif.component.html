@@ -1,32 +1,21 @@
 <h2 class="title">Gifs of: {{ searchParam }}</h2>
-<!-- <app-input /> -->
-<div class="searchSection">
-  <form (ngSubmit)="onSearch()">
-    <input
-      class="searchInput"
-      type="text"
-      [(ngModel)]="searchTerm"
-      name="search"
-      placeholder="Buscar..."
-    />
-    <button type="submit" class="buttonSearch">Buscar</button>
-  </form>
-</div>
-<section class="container-page">
-  @if(gifResults$ | async; as resultObject){ @for(gif of resultObject; track
-  gif.id){
-  <app-card>
-    <h3>{{ gif.title }}</h3>
-    <img src="{{ gif.images.fixed_width_downsampled.url }}" alt="" />
-  </app-card>
-  } }
-</section>
 
-<div class="pagination">
-  @if(pageNumber!==1){
-  <button class="paginationBotton" (click)="pagination('previus')">
-    Previous
-  </button>
+<app-search-bar (search)="onSearch($event)" />
+
+<section class="container-page">
+  @if(gifResults$ | async; as resultObject) {
+  <div class="gifsSection">
+    @for(gif of resultObject; track gif.id){
+    <app-card>
+      <h3>{{ gif.title }}</h3>
+      <img src="{{ gif.images.fixed_width_downsampled.url }}" alt="" />
+    </app-card>
+    }
+  </div>
+  <app-pagination
+    [pageNumber]="pageNumber"
+    [hasMore]="resultObject.length === 20"
+    (pageChange)="pagination($event)"
+  ></app-pagination>
   }
-  <button class="paginationBotton" (click)="pagination('next')">Next</button>
-</div>
+</section>

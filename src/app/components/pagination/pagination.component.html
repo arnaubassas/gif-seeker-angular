@@ -1,0 +1,12 @@
+<div class="pagination">
+  <button
+    class="paginationButton"
+    (click)="onPrevious()"
+    [disabled]="pageNumber === 1"
+  >
+    Previous
+  </button>
+  <button class="paginationButton" (click)="onNext()" [disabled]="!hasMore">
+    Next
+  </button>
+</div>

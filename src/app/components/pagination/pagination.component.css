@@ -1,0 +1,17 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0 20px;
+}
+.paginationButton {
+  border: none;
+  background-color: rgba(6, 155, 241, 0.813);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: larger;
+  margin-right: 5px;
+}
+.paginationButton:disabled {
+  display: none;
+}
