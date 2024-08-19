@@ -1,11 +1,21 @@
-<h2 class="title">Gifs</h2>
+<h2 class="title">Gifs of: {{ searchParam }}</h2>
+
+<app-search-bar (search)="onSearch($event)" />
 
 <section class="container-page">
-  @if(gifResults$ | async; as resultObject){ @for(gif of resultObject; track
-  gif.id){
-  <app-card>
-    <h3>{{ gif.title }}</h3>
-    <img src="{{ gif.images.fixed_width_downsampled.url }}" alt="" />
-  </app-card>
-  } }
+  @if(gifResults$ | async; as resultObject) {
+  <div class="gifsSection">
+    @for(gif of resultObject; track gif.id){
+    <app-card>
+      <h3>{{ gif.title }}</h3>
+      <img src="{{ gif.images.fixed_width_downsampled.url }}" alt="" />
+    </app-card>
+    }
+  </div>
+  <app-pagination
+    [pageNumber]="pageNumber"
+    [hasMore]="resultObject.length === 20"
+    (pageChange)="pagination($event)"
+  ></app-pagination>
+  }
 </section>
