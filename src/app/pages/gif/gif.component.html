@@ -1,4 +1,6 @@
-<h2 class="title">Gifs of: {{ searchParam }}</h2>
+<h2 class="title">
+  Gifs of: <span class="titleSearch">{{ searchParam }}</span>
+</h2>
 
 <app-search-bar (search)="onSearch($event)" />
 
